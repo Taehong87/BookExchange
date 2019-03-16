@@ -25,12 +25,13 @@
 
 	if (mysqli_num_rows($results) > 0) 
 	{
-		
-		#header("Location: main.php");
-		#exit;
+		session_start();
+		$_SESSION['name'] = $_POST["name"];
+		$_SESSION['email'] = $_POST["email"];
+		header("Location: main.php");
+		exit;
 	}
 
 ?>
-</table>
 </body>
 </html>
