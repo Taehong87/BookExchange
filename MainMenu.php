@@ -5,17 +5,17 @@
 	#print $name_email;
 ?>
 
-<ul>
-<li>
-	<a href="shopping.php?<?php print $name_email; ?>" /> shopping
+<ul class="ul_css">
+<li class="li_css">
+	<a class="li_css_a" href="shopping.php?<?php print $name_email; ?>" /> shopping
 	</a>
 </li>
-<li>
-	<a href="selling.php?<?php print $name_email; ?>" /> selling
+<li class="li_css">
+	<a class="li_css_a" href="selling.php?<?php print $name_email; ?>" /> selling
 	</a>
 </li>
-<li>
-	<a href="profile.php?<?php print $name_email; ?>" /> profile
+<li class="li_css">
+	<a class="li_css_a" href="profile.php?<?php print $name_email; ?>" /> profile
 	</a>
 </li>
 </ul>
