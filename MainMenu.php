@@ -1,3 +1,6 @@
+
+<link href="MainMenu.css" type="text/css" rel="stylesheet" />
+
 <?php
 	session_start();
 	$name_email = 'name=' . $_SESSION['name'] .
