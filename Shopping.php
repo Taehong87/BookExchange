@@ -30,6 +30,15 @@
 		<th>
 			Book Picture
 		</th>
+		<th>
+			Subject
+		</th>
+		<th>
+			Price
+		</th>
+		<th>
+		SELECT
+		</th>
 	</tr>
 <?php
 	while($row = mysqli_fetch_assoc($results)) 
@@ -44,14 +53,22 @@
 		print "<td>";
 		print ($row["posttime"]);
 		print "</td>";
-
-
-
 		print "<td>";
 		print "<img src='";
 		print $row["picpath"] . "' height=50 width=50>";
 		print "</td>";
-
+		print "<td>";
+		print ($row["subject"]);
+		print "</td>";
+		print "<td>";
+		print ($row["price"]);
+		print "</td>";
+		print "<td>";
+		print "<a href='select.php?";
+		print "email=" . $row["email"] . "'>";
+		print "SELECT";
+		print "</a>";
+		print "</td>";
 		/*print "<td>";
 		print "<a href='UserDelete.php?";
 		print "email=" . $row["email"] . "'>";
