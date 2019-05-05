@@ -35,11 +35,16 @@ $bookInsert = "insert into books values(null, '" .
 			   $currentTime .
 			   "', '" .
 			   $pathname .
+			   "', '" . 
+			   $_POST["subject"] . 
+			   "', '" .
+			   $_POST["price"] .
 			   "')";
 
 $result = mysqli_query($connect, $bookInsert);
-
 	header("Location: Shopping.php");
+	
+	
 ?>
 
 </body>

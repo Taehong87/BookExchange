@@ -7,8 +7,9 @@
 
 <body>
 <?php
-	include("MainMenu.php");
+	include("mainMenu.php");
 ?>
+
 <form action="SellingInsert.php" enctype="multipart/form-data" method="post">
 <table align="center">
 <tr>
@@ -21,6 +22,7 @@ User Name
 									?>"/>
 </td>
 </tr>
+
 <tr>
 <td>
 Email
@@ -43,13 +45,30 @@ Title
 
 <tr>
 <td>
+Price
+</td>
+<td>
+<input type="text" name="price" />
+</td>
+</tr>
+
+<tr>
+<td>
+Subject
+</td>
+<td>
+<input type="text" name="subject" />
+</td>
+</tr>
+
+<tr>
+<td>
 Description
 </td>
 <td>
 <input type="text" name="description" />
 </td>
 </tr>
-
 <tr>
 <td>
 Book Picture
@@ -65,5 +84,6 @@ Book Picture
 </td>
 </tr>
 </form>
+
 </body>
 </html>
