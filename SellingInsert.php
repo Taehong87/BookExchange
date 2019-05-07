@@ -23,6 +23,9 @@
 	include("Connect_Database.php")
 ?>
 <?php
+	include("MainMenu.php")
+?>
+<?php
 $bookInsert = "insert into books values(null, '" .
 			   $_POST["name"] .
 			   "', '" .
@@ -39,6 +42,8 @@ $bookInsert = "insert into books values(null, '" .
 			   $_POST["subject"] . 
 			   "', '" .
 			   $_POST["price"] .
+			   "', '" .
+			   $_SESSION["id"] .
 			   "')";
 
 $result = mysqli_query($connect, $bookInsert);

@@ -20,14 +20,11 @@
 
 <!-- form to make submit button work -->
 <form action="Shopping.php" method ="post">
-
-
-
 <!-- This table creates the search bar and the submit button for it -->
 <table>
 	<input type="text" name="search"/>
 	<input type="submit" value="submit"/>
-</table>
+</table>	
 
 <table align="center" border=2 width=400>
 	<tr>
@@ -71,5 +68,6 @@
 		}
 	?>
 </table>
+</form>
 </body>
 </html>
