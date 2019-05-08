@@ -107,6 +107,8 @@
 		<th>
 			Book Picture
 		</th>
+		<th width=100>
+		</th>
 	</tr>
 	<?php
 		while($row = mysqli_fetch_assoc($results)) 
@@ -125,6 +127,12 @@
 				print "<td>";
 				print "<img src='";
 				print $row["picpath"] . "' height=50 width=50>";
+				print "</td>";
+				print "<td>";
+				print "<a href='deleteBook.php?";
+				print "bookId=" . $row["bookId"] . "'>";
+				print "DELETE";
+				print "</a>";
 				print "</td>";
 				print "</tr>";
 			}

@@ -47,9 +47,7 @@ $bookInsert = "insert into books values(null, '" .
 			   "')";
 
 $result = mysqli_query($connect, $bookInsert);
-	header("Location: Shopping.php");
-	
-	
+	header("Location: shopping.php");
 ?>
 
 </body>
