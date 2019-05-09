@@ -55,8 +55,7 @@
 
         </table>        
     
-        <a href = EditProfile.php align = "center"> Edit Profile <a>
-        <a href = History.php align = "center"> History <a>
+        <a href="EditProfile.php?<?php print $name_email_id; ?>" /> Edit Profile <a>
 
     </body>
 
