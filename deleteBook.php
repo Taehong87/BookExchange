@@ -17,7 +17,10 @@ include("mainmenu.php");
 <?php
 $delete = "delete from books where 	bookId = '". $_GET['bookId'] ."'";
 $result = mysqli_query($connect, $delete);
-	header("Location: shopping.php");
+	$URL = "Location: Selling.php?name=" .
+			$_POST["name"] . 
+			"&email=" .$_POST["email"];
+	header($URL);
 ?>
 </body>
 </html>

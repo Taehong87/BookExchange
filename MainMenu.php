@@ -5,7 +5,10 @@
 	session_start();
 	$name_email_id = 'name=' . $_SESSION['name'] .
 				  '&email=' . $_SESSION['email'] .
-				  '&id=' . $_SESSION['id'];
+				  '&id=' . $_SESSION['id'] .
+				  '&cin=' . $_SESSION['cin'] .
+				  '&nickname=' . $_SESSION['nickname'] . 
+				  '&profpic=' . $_SESSION['profpic'];
 	//print $name_email_id;
 	
 ?>

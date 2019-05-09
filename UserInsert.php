@@ -11,14 +11,16 @@
 ?>
 <?php
 
-
-$userInsert = "insert into users values(null, '" .
-			   $_POST["name"] .
-			   "', '" .
-			   $_POST["email"] .
-			"')";
+$userInsert = "insert into users values (null, '" .
+				$_POST["name"] .
+				"', '" . 
+				$_POST["email"] .
+				"','" . 
+				$_POST["cin"] . 
+				"', null, 'images/defaultprofile.jpg');";
 
 $result = mysqli_query($connect, $userInsert);
+	header("Location: login.php");
 ?>
 </body>
 </html>

@@ -12,33 +12,44 @@
             include("MainMenu.php");
         ?>
 
+        <?php
+            include("Connect_Database.php")
+        ?>
+
         <table align = "center">
 
             <tr>
             
                 <td>Name:</td>
-                <td></td>
+                <td><?php print $_GET['name']; ?></td>
 
             </tr>
 
             <tr>
 
                 <td>Email:</td>
-                <td></td>
+                <td><?php print $_GET['email']; ?></td>
 
             </tr>
 
             <tr>
 
                 <td>CIN:</td>
-                <td></td>
+                <td><?php print $_GET['cin']; ?></td>
+
+            </tr>
+
+            <tr>
+
+                <td>Nickname:</td>
+                <td><?php print $_GET['nickname']; ?></td>
 
             </tr>
 
             <tr>
 
                 <td>Profile Picture:</td>
-                <td></td>
+                <td><img src="<?php print $_GET['profpic'];?>" height=75 width=75 ></td>
 
             </tr>
 
