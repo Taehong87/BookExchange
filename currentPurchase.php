@@ -1,9 +1,8 @@
-
+//this file is in charge of deleting the book from the books database and add the purchased book to purchased database
 <!doctype html>;
 <html>
 <head>
 
-//add this file to htdocs this allows a user to buy one book at a time
 <meta charset="utf-8">
 <title>Shopping Page</title>
 </head>
@@ -29,10 +28,11 @@ include("currentUser.php");
 ?>
 
 <?php
+
 	while ($row = mysqli_fetch_assoc($results)) {
-			if ($row['name'] != $_SESSION['name'] AND $row['email'] != $_SESSION['email'] AND $row['title'] == $_GET['title']) {
-				$insertBook = "insert into purchasehistory values ('" . $_SESSION['name'] . "', '" . $_SESSION['email'] . "', '" . $_GET['title'] . "',
-				'" . $currentTime . "', '" . $row['subject'] . "', '" . $row['price'] . "')";
+			if ($row['name'] != $_SESSION['name'] AND $row['email'] != $_SESSION['email'] AND $row['bookId'] == $_GET['bookId']) {
+				$insertBook = "INSERT INTO purchased VALUES (null, '" . $row['name'] . "', '" . $row['title'] . "', '" . $row['description'] . "', '" . $currentTime . "',
+				'" . $row['picpath'] . "', '" . $row['subject'] . "', '" . $row['price'] . "', '" . $row['nameID'] . "', '" . $_SESSION['name'] . "', '" . $_SESSION['id'] . "')";
 				
 				$insert = mysqli_query($connect, $insertBook);
 				

@@ -1,4 +1,5 @@
-<!doctype html>
+
+ <!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -13,25 +14,27 @@
 	$searchUser = "select * from users where " .
 		"name='" . $_POST["name"] . "' and " .
 		"email='" . $_POST["email"] . "'";
-	print $_POST["name"];
-	print $searchUser;
+	//print $searchUser;
 	$results = mysqli_query($connect, $searchUser);
-
+	$data = mysqli_fetch_assoc($results);
+	//print $data["id"];
+     
 	if (mysqli_num_rows($results) == 0) 
 	{
 		header("Location: login.html");
 		exit;
 	}
-
 	if (mysqli_num_rows($results) > 0) 
 	{
 		session_start();
-		$_SESSION['name'] = $_POST["name"];
-		$_SESSION['email'] = $_POST["email"];
-		header("Location: main.php");
+		$_SESSION['name'] = $data["name"];
+		$_SESSION['email'] = $data["email"];
+		$_SESSION['id'] = $data["id"];
+		print $_SESSION["id"];
+		header("Location: Main.php");
 		exit;
 	}
-
 ?>
 </body>
 </html>
+

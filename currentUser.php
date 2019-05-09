@@ -1,7 +1,8 @@
-//add this to htdocs. this keeps tracks of the current user
+
 <?php
 	session_start();
-	$name_email = 'name=' . $_SESSION['name'] .
-				  '&email=' . $_SESSION['email'];
+	$name_email_id = 'name=' . $_SESSION['name'] .
+				  '&email=' . $_SESSION['email'] .
+				  '&id=' . $_SESSION['id'];
 	#print $name_email;
 ?>

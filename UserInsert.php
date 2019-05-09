@@ -10,15 +10,13 @@
 	include("Connect_Database.php")
 ?>
 <?php
-
-
-$userInsert = "insert into users values('" .
+$userInsert = "insert into users values(null, '" .
 			   $_POST["name"] .
 			   "', '" .
 			   $_POST["email"] .
 			"')";
-
 $result = mysqli_query($connect, $userInsert);
+header("Location: login.html");
 ?>
 </body>
 </html>

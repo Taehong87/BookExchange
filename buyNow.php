@@ -1,4 +1,4 @@
-//add this file to your htdocs
+// this file is in charge of buying a book instantly
 <!doctype html>;
 <html>
 <head>
@@ -31,6 +31,9 @@ include("mainMenu.php")
 <table align="center" border=2 width=400>
 	<tr>
 		<th>
+		Name
+		</th>
+		<th>
 			Title
 		</th>
 		<th>
@@ -48,12 +51,14 @@ include("mainMenu.php")
 	</tr>
 
 <?php
-$price = null;
 	while ($row = mysqli_fetch_assoc($results)) {
 		
-		if ($row['name'] != $_SESSION['name'] AND $row['email'] != $_SESSION['email'] AND $row['title'] == $_GET['title']) {
+		if ($row['name'] != $_SESSION['name'] AND $row['email'] != $_SESSION['email'] AND $row['bookId'] == $_GET['bookId']) {
 			
 		print "<tr>";
+		print "<td>";
+		print ($_SESSION['name']);
+		print "</td>";
 		print "<td>";
 		print ($row["title"]);
 		print "</td>";
@@ -69,7 +74,7 @@ $price = null;
 		print "</td>";
 		print "<td>";
 		print "<a href='currentPurchase.php?";
-		print "title=" . $row["title"] . "'>";
+		print "bookId=" . $row["bookId"] . "'>";
 		print "Purchase";
 		print "</a>";
 		print "</tr>";
@@ -77,8 +82,6 @@ $price = null;
 		print ($row["price"]);
 		}
 	}
-	
-	
 ?>
 
 </table>

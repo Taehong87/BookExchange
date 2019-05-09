@@ -1,0 +1,19 @@
+.body {
+	background-color: black;
+	
+	
+	
+}
+
+
+
+
+.profile pic{
+		vertical-align: middle;
+           width: 150px;
+           height: 200px;
+           border-radius: 85%;
+            position: relative;
+           top: 15px;
+           right: -365px;
+}
