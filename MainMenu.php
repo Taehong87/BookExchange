@@ -1,5 +1,3 @@
-
-//I ADDED A FORM TO THIS FILE. the form is to logout the user. Add this modification to mainMenu.php
 <link href="MainMenu.css" type="text/css" rel="stylesheet" />
 
 <?php

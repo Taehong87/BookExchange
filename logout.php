@@ -1,4 +1,3 @@
-//this file destroys the current session of the user which keeps track of who is the current user
 <!doctype html>
 <html>
 <head>
@@ -6,12 +5,29 @@
 <title>Book Exchange Login Page</title>
 </head>
 <body>
+
 <?php
-include("shoppingCart.php");
+include("connect_Database.php");
+?>
+
+
+
+<?php
+	$selectBooks = "select * from books";
+	$results = mysqli_query($connect, $selectBooks);
 ?>
 
 <?php
+include("shoppingCartArray.php");
+$_SESSION['cart'] = array();
+?>
+
+
+<?php
 	if(isset($_POST['logout'])){
+		$update = "UPDATE books SET incart = '0' where incart = '1' ";
+		$updateNow = mysqli_query($connect, $update);
+		
 		session_destroy();
 		header("Location: login.html");
 	}

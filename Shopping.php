@@ -1,4 +1,3 @@
-// I added the drop down list for price and subject. Also added links for ADD TO CART, BUY NOW, DELETE.
 <link href="shopping.css" type = "text/css" rel="stylesheet">
 
 <!doctype html>
@@ -15,6 +14,8 @@
 <?php 
 include("mainMenu.php");
 ?>
+
+
 <?php
 	$selectBooks = "select * from books";
 	$results = mysqli_query($connect, $selectBooks);
@@ -50,9 +51,6 @@ include("mainMenu.php");
 		</th>
 	</tr>
 	
-	//this prints books depending on if you select something from the drop down list whether if its based on the price or subject. Also prints the entire table if 
-
-	//you select show all
 <?php
 
 	if (isset($_POST['subject'])) {
@@ -69,7 +67,7 @@ include("mainMenu.php");
 	while($row = mysqli_fetch_assoc($results)) 
 	{
 		if ($row['subject'] == $selected_val xor !(isset($selected_val))) {
-			
+			if ($row['incart'] == 0) {
 		print "<tr>";
 		print "<td>";
 		print ($row["title"]);
@@ -91,28 +89,18 @@ include("mainMenu.php");
 		print ($row["price"]);
 		print "</td>";
 		print "<td>";
-		print "<a href='cart.php?";
+		print "<a href='shoppingCartArray.php?";
 		print "bookId=" . $row["bookId"] . "'>";
 		print "ADD TO CART";
 		print "</a>";
 		print "</td>";
-		print "<td>";
-		print "<a href='buyNow.php?";
-		print "bookId=" . $row["bookId"] . "'>";
-		print "BUY NOW";
-		print "</a>";
-		print "</td>";
-		print "<td>";
-		print "<a href='deleteBook.php?";
-		print "title=" . $row["title"] . "'>";
-		print "DELETE";
-		print "</a>";
-		print "</td>";
 		print "</tr>";
+			}
 		}
 		else if ($selected_val > 0) {
 		
 			if ((($selected_val - 50) <= $row['price']) AND (($selected_val + 50) >= $row['price']) ) {
+				if ($row['incart'] == 0) {
 				print "<tr>";
 		print "<td>";
 		print ($row["title"]);
@@ -134,24 +122,13 @@ include("mainMenu.php");
 		print ($row["price"]);
 		print "</td>";
 		print "<td>";
-		print "<a href='cart.php?";
+		print "<a href='shoppingCartArray.php?";
 		print "bookId=" . $row["bookId"] . "'>";
 		print "ADD TO CART";
 		print "</a>";
 		print "</td>";
-		print "<td>";
-		print "<a href='buyNow.php?";
-		print "bookId=" . $row["bookId"] . "'>";
-		print "BUY NOW";
-		print "</a>";
-		print "</td>";
-		print "<td>";
-		print "<a href='deleteBook.php?";
-		print "title=" . $row["title"] . "'>";
-		print "DELETE";
-		print "</a>";
-		print "</td>";
 		print "</tr>";
+				}
 			}
 		}
 	}
@@ -159,7 +136,6 @@ include("mainMenu.php");
 ?>
 </table>
 
-//below is the code that displays the drop down list
 <form action="shopping.php" method="post">
 <select name="subject">
 <option value="Math">Math</option>
@@ -189,5 +165,10 @@ include("mainMenu.php");
 <form action="shopping.php" method="post">
 <input type="submit" name="books" value="Show All"/>
 </form>
+
+<form action="shoppingCartArray.php" method="post">
+<input type="submit" name="shoppingCart" value="View Shopping cart"/>
+</form>
+
 </body>
 </html>
