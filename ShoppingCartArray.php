@@ -43,7 +43,6 @@ $id = $_SESSION['id'];
       <div class="card h-100">
         <div class="card-body">
           <h4 class="card-title"></h4>
-          <?php print "Total Cart Price: " . $totalPrice; ?> 
 			<h1 class="my-4"></h1>
 			<form action="shoppingCartArray.php" method="post">
 				<button class="btn btn-primary" type="submit" name="purchaseAll" value="Purchase All">Purchase All</button>
@@ -161,7 +160,7 @@ else if (isset($_POST['shoppingCart'])) {
 else {
 while($row = mysqli_fetch_assoc($results)) {
 	if ($_SESSION['name'] != $row['name']) {
-			if ($_GET['bookId'] == $row['bookId']) {
+			if (isset($_GET['bookid']) && $_GET['bookId'] == $row['bookId']) {
 			$arrlength = count($_SESSION['cart']);
 		
 			if ($arrlength == 0) {
