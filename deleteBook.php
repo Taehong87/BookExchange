@@ -18,8 +18,8 @@ include("mainmenu.php");
 $delete = "delete from books where 	bookId = '". $_GET['bookId'] ."'";
 $result = mysqli_query($connect, $delete);
 	$URL = "Location: Selling.php?name=" .
-			$_POST["name"] . 
-			"&email=" .$_POST["email"];
+			$_SESSION["name"] . 
+			"&email=" .$_SESSION["email"];
 	header($URL);
 ?>
 </body>

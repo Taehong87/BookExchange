@@ -44,12 +44,12 @@ $bookInsert = "insert into books values(null, '" .
 			   $_POST["price"] .
 			   "', '" .
 			   $_SESSION["id"] .
-			   "')";
+			   "', 0)";
 
 $result = mysqli_query($connect, $bookInsert);
 	$URL = "Location: Selling.php?name=" .
-			$_POST["name"] . 
-			"&email=" .$_POST["email"];
+			$_SESSION["name"] . 
+			"&email=" .$_SESSION["email"];
 	header($URL);
 ?>
 
