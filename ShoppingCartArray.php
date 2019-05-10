@@ -15,6 +15,10 @@ session_start();
 ?>
 
 <?php
+	include("MainMenu.php")
+?>
+
+<?php
 	$selectBooks = "select * from books";
 	$results = mysqli_query($connect, $selectBooks);
 ?>
@@ -31,48 +35,41 @@ $name = $_SESSION['name'];
 $email = $_SESSION['email'];
 $id = $_SESSION['id'];
 ?>
-<form action="logout.php" method="post">
-<input type="submit" name="logout" value="logout">
-</form>
 
-<ul class="ul_css">
-<li class="li_css">
-	<a class="li_css_a" href="shopping.php?<?php print "name=$name&email=$email&id=$id"; ?>" /> shopping
-	</a>
-</li>
-<li class="li_css">
-	<a class="li_css_a" href="selling.php?<?php print "name=$name&email=$email&id=$id"; ?>" /> selling
-	</a>
-</li>
-<li class="li_css">
-	<a class="li_css_a" href="profile.php?<?php print "name=$name&email=$email&id=$id"; ?>" /> profile
-	</a>
-</li>
-</ul>
-<h1 style="text-align: center"> Shopping Cart</h1>
-<table align="center" border=2 width=400>
-	<tr>
-		<th>
-			Title
-		</th>
-		<th>
-			Name
-		</th>
-		<th>
-			Post Time
-		</th>
-		<th>
-			Book Picture
-		</th>
-		<th>
-			Subject
-		</th>
-		<th>
-			Price
-		</th>
-	</tr>
-
-<?php
+<div class="container">
+<h1 class="my-4"></h1>
+<div class="row">
+	<div class="col-md-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h4 class="card-title"></h4>
+          <?php print "Total Cart Price: " . $totalPrice; ?> 
+			<h1 class="my-4"></h1>
+			<form action="shoppingCartArray.php" method="post">
+				<button class="btn btn-primary" type="submit" name="purchaseAll" value="Purchase All">Purchase All</button>
+			</form>
+            <hr class="my-4">
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-8">
+      <div class="card h-100">
+        <div class="card-body">
+          <h4 class="card-title">
+          </h4>
+         	<table class="table" border=2 width=100%>
+        	<thead class="thead-dark">
+         	<tr>
+         		<th scope="col">Title</th>
+         		<th scope="col">Name</th>
+         		<th scope="col">Post Time</th>
+         		<th scope="col">Book Picture</th>
+         		<th scope="col">Subject</th>
+         		<th scope="col">Price</th>
+			</tr>
+			</thead>
+			<tbody>
+			<?php
 if (empty($_SESSION['cart'])) {
 	$_SESSION['cart'] = array();
 }
@@ -221,18 +218,20 @@ while($row = mysqli_fetch_assoc($results)) {
 		}
 	}
 
-		print "Total Price: ";
-		print $totalPrice;
+		// print "Total Price: ";
+		// print $totalPrice;
 	}
 	
 		
 
 ?>
-</table>
-
-<form action="shoppingCartArray.php" method="post">
-		<input type ="submit" name="purchaseAll" value="Purchase">
-</form>
+			</tbody>
+		</table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
