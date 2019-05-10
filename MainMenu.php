@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="custom.css">
 
 <?php
+if(session_id() == '' || !isset($_SESSION)) {
 	session_start();
 	$name_email_id = 'name=' . $_SESSION['name'] .
 				  '&email=' . $_SESSION['email'] .
@@ -15,6 +16,7 @@
 				  '&nickname=' . $_SESSION['nickname'] . 
 				  '&profpic=' . $_SESSION['profpic'];
 	//print $name_email_id;
+}
 	
 ?>
 
@@ -45,7 +47,7 @@
             	<?php if(isset($_SESSION['is_logged_in'])):?>
 
 			 <form class="form-inline my-2 my-lg-0" action="logout.php" method="post">
-					<button class="btn btn-sm btn-outline-primary mr-sm-2" type="submit" name="logout">Logout</button>
+					<button class="btn btn-sm btn-outline-primary mr-sm-2" type="submit" name="logout" value="logout">Logout</button>
 				</form>
                
         <?php    

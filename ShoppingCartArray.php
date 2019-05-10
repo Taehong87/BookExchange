@@ -218,8 +218,8 @@ while($row = mysqli_fetch_assoc($results)) {
 		}
 	}
 
-		// print "Total Price: ";
-		// print $totalPrice;
+		print "Total Price: ";
+		print $totalPrice;
 	}
 	
 		
