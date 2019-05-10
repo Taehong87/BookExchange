@@ -36,8 +36,9 @@
 		$_SESSION['cin'] = $data["cin"];
 		$_SESSION['nickname'] = $data['nickname'];
 		$_SESSION['profpic'] = $data['profpic'];
+		$_SESSION['is_logged_in'] = true;
 		print $_SESSION["id"];
-		header("Location: Main.php");
+		header("Location: Shopping.php");
 		exit;
 	}
 

@@ -41,30 +41,20 @@
   <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <form class="form-inline my-2 my-lg-0" action="logout.php" method="post">
-                	<!-- <input type="submit" name="logout" value="logout"> -->
+
+            	<?php if(isset($_SESSION['is_logged_in'])):?>
+
+			 <form class="form-inline my-2 my-lg-0" action="logout.php" method="post">
 					<button class="btn btn-sm btn-outline-primary mr-sm-2" type="submit" name="logout">Logout</button>
 				</form>
+               
+        <?php    
+        else:?>
+
+		<a class="btn btn-sm btn-outline-primary mr-sm-2" href="login.html" role="button">Login</a>
+
+        <?php endif; ?>
             </li>
         </ul>
     </div>
 </nav>
-
-<!-- <form action="logout.php" method="post">
-<input type="submit" name="logout" value="logout">
-</form>
-
-<ul class="ul_css">
-<li class="li_css">
-	<a class="li_css_a" href="shopping.php?<?php print $name_email_id; ?>" /> shopping
-	</a>
-</li>
-<li class="li_css">
-	<a class="li_css_a" href="selling.php?<?php print $name_email_id; ?>" /> selling
-	</a>
-</li>
-<li class="li_css">
-	<a class="li_css_a" href="profile.php?<?php print $name_email_id; ?>" /> profile
-	</a>
-</li>
-</ul> -->
