@@ -19,6 +19,7 @@ session_start();
 ?>
 
 <?php
+    $totalPrice = 0;
 	$selectBooks = "select * from books";
 	$results = mysqli_query($connect, $selectBooks);
 ?>
@@ -43,6 +44,7 @@ $id = $_SESSION['id'];
       <div class="card h-100">
         <div class="card-body">
           <h4 class="card-title"></h4>
+         
 			<h1 class="my-4"></h1>
 			<form action="shoppingCartArray.php" method="post">
 				<button class="btn btn-primary" type="submit" name="purchaseAll" value="Purchase All">Purchase All</button>
@@ -152,15 +154,15 @@ else if (isset($_POST['shoppingCart'])) {
 			}
 		}
 	}
-		print "Total Price: ";
-		print $totalPrice;
+		// print "Total Price: ";
+		// print $totalPrice;
 }
 
 
 else {
 while($row = mysqli_fetch_assoc($results)) {
 	if ($_SESSION['name'] != $row['name']) {
-			if (isset($_GET['bookid']) && $_GET['bookId'] == $row['bookId']) {
+			if ($_GET['bookId'] == $row['bookId']) {
 			$arrlength = count($_SESSION['cart']);
 		
 			if ($arrlength == 0) {
@@ -188,6 +190,7 @@ while($row = mysqli_fetch_assoc($results)) {
 	$results = mysqli_query($connect, $selectBooks);
 	$size = count($_SESSION['cart']);
 	$totalPrice = 0;
+	
 	while($row = mysqli_fetch_assoc($results)) {
 		for ($x = 0; $x < $size; $x++) {
 			if ($_SESSION['cart'][$x] == $row['bookId']) {
@@ -217,8 +220,8 @@ while($row = mysqli_fetch_assoc($results)) {
 		}
 	}
 
-		print "Total Price: ";
-		print $totalPrice;
+		// print "Total Price: ";
+		// print $totalPrice;
 	}
 	
 		
@@ -226,6 +229,8 @@ while($row = mysqli_fetch_assoc($results)) {
 ?>
 			</tbody>
 		</table>
+ 		<?php print "Total Price: " . $totalPrice ?>
+
         </div>
       </div>
     </div>
