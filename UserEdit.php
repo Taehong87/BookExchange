@@ -75,7 +75,7 @@
             $_SESSION['nickname'] = $data['nickname'];
             $_SESSION['profpic'] = $data['profpic'];
             print $_SESSION["id"];
-            header("Location: Main.php");
+            header("Location: Shopping.php");
             exit;
         }
 
