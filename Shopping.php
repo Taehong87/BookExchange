@@ -116,8 +116,8 @@
 			 	|| $_POST["search"] == "") {
 			 		if (!isset($selected_sub) || $row['subject'] == $selected_sub) {
 						if (!isset($selected_price)
-							|| ($row['price'] > $selected_price - 50
-							&& $row['price'] < $selected_price + 49)) {
+							|| ($row['price'] >= $selected_price - 50
+							&& $row['price'] <= $selected_price + 49)) {
 							print "<tr>";
 							print "<td>";
 							print ($row["title"]);
